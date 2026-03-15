@@ -1,0 +1,1 @@
+# Audio Output for Corrected Text\n\n- [ ] 1. Add speak button after corrected text\n- [ ] 2. Implement Web Speech Synthesis API in static/script.js\n- [ ] 3. Update templates/index.html structure\n- [ ] 4. Style audio button\n- [ ] 5. Test and complete\n

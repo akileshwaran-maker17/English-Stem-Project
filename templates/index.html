@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Grammar Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="background">
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="blob blob3"></div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>✨ English Grammar Assistant</h1>
+            <p>Check grammar, use voice input, listen to corrected text, and save your result.</p>
+        </div>
+
+        <div class="card">
+            <label for="inputText">Enter or Speak Your Text</label>
+            <textarea id="inputText" placeholder="Type here or use microphone..."></textarea>
+
+            <div class="button-group">
+                <button class="btn primary" onclick="checkGrammar()">Check Grammar</button>
+                <button class="btn voice" onclick="startVoiceInput()">🎤 Voice Input</button>
+                <button class="btn speak" onclick="speakInputText()">🔊 Speak Input</button>
+                <button class="btn secondary" onclick="clearAll()">Clear</button>
+            </div>
+
+            <div class="info-cards">
+                <div class="info-box">
+                    <span class="label">Issues Found</span>
+                    <span class="value" id="issuesCount">0</span>
+                </div>
+                <div class="info-box">
+                    <span class="label">Voice Status</span>
+                    <span class="value" id="voiceStatus">Idle</span>
+                </div>
+            </div>
+
+            <div class="results">
+                <div class="result-box">
+                    <h3>📝 Original Text</h3>
+                    <p id="originalText">Your original text will appear here...</p>
+                </div>
+
+                <div class="result-box corrected">
+                    <h3>✅ Corrected Text</h3>
+                    <p id="correctedText">Corrected text will appear here...</p>
+
+                    <div class="inner-buttons">
+                        <button class="btn speak" onclick="speakCorrectedText()">🔊 Speak Corrected Text</button>
+                        <button class="btn stop" onclick="stopSpeaking()">⏹ Stop Audio</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="save-section">
+                <label for="fileName">Save Corrected Text</label>
+                <div class="save-row">
+                    <input type="text" id="fileName" value="corrected.txt" placeholder="Enter file name">
+                    <button class="btn success" onclick="saveFile()">Save File</button>
+                </div>
+            </div>
+
+            <div id="statusMessage" class="status-message"></div>
+        </div>
+
+        <div class="footer">
+            <p>Made with ❤️ using Flask + LanguageTool + Web Speech API</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
